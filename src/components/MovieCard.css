@@ -1,0 +1,128 @@
+/* MovieCard.css */
+
+/* Base Styles */
+.movie-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: #1c1c1c;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.poster-wrap {
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.poster {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.movie-card:hover .poster {
+  transform: scale(1.1);
+}
+
+/* Overlay on hover */
+.poster-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: #fff;
+  opacity: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: opacity 0.4s ease;
+}
+
+.movie-card:hover .poster-overlay {
+  opacity: 1;
+}
+
+.rating {
+  font-weight: bold;
+  background: rgba(255, 215, 0, 0.9);
+  color: #000;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.details-btn {
+  padding: 6px 12px;
+  background: #ff3d3d;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: background 0.3s ease;
+}
+
+.details-btn:hover {
+  background: #ff6060;
+}
+
+.movie-title {
+  margin: 8px 0 12px;
+  padding: 0 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Grid responsiveness handled in parent, but card adjusts with width */
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .movie-card {
+    border-radius: 10px;
+  }
+  .poster-overlay {
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+  .details-btn {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+  .movie-title {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-card {
+    border-radius: 8px;
+  }
+  .poster-overlay {
+    padding: 4px;
+    font-size: 0.7rem;
+  }
+  .details-btn {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+  .movie-title {
+    font-size: 0.8rem;
+  }
+}

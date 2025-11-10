@@ -1,0 +1,160 @@
+/* TopRated.css */
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+/* Page title */
+.page-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #ff3d3d;
+  position: relative;
+}
+
+.page-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #ff3d3d;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* Grid for movies */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.5s forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+/* Shimmer effect for loading */
+.shimmer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.shimmer-grid::after,
+.shimmer-grid::before,
+.shimmer-grid div {
+  content: '';
+  display: block;
+  height: 225px;
+  background: linear-gradient(90deg, #333 25%, #444 50%, #333 75%);
+  background-size: 400% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* Error message */
+.error {
+  color: #ff6b6b;
+  text-align: center;
+  margin-top: 1.5rem;
+  font-weight: bold;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.pg-btn {
+  padding: 0.5rem 1rem;
+  background-color: #ff3d3d;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
+}
+
+.pg-btn:hover:not(:disabled) {
+  background-color: #ff1a1a;
+  transform: scale(1.05);
+}
+
+.pg-btn:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.pg-info {
+  font-size: 1rem;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.7rem;
+  }
+
+  .shimmer-grid::after,
+  .shimmer-grid::before,
+  .shimmer-grid div {
+    height: 180px;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .shimmer-grid::after,
+  .shimmer-grid::before,
+  .shimmer-grid div {
+    height: 160px;
+  }
+
+  .page-title {
+    font-size: 1.3rem;
+  }
+}

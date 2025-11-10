@@ -1,0 +1,194 @@
+/* MovieDetails.css */
+
+/* Container styling */
+.details-page {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+/* Movie hero section */
+.movie-hero {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.hero-poster {
+  width: 100%;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+
+.hero-poster:hover {
+  transform: scale(1.02);
+}
+
+/* Gradient overlay for text readability */
+.hero-grad {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 20%,
+    rgba(0, 0, 0, 0.3) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+}
+
+.hero-info {
+  max-width: 700px;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-meta {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+
+.hero-overview {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #eee;
+}
+
+/* Cast section */
+.cast-section {
+  margin-top: 3rem;
+}
+
+.cast-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  border-bottom: 2px solid #ff3d3d;
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+
+.cast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.cast-card {
+  background-color: rgba(20, 20, 20, 0.7);
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.cast-card:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.cast-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.cast-card:hover img {
+  transform: scale(1.1);
+}
+
+.cast-info {
+  padding: 0.5rem;
+}
+
+.cast-name {
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.cast-role {
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+/* Loading shimmer effect */
+.shimmer-hero {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(90deg, #333 25%, #444 50%, #333 75%);
+  background-size: 400% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 12px;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Media queries for mobile */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-info {
+    padding: 1rem;
+  }
+
+  .cast-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.7rem;
+  }
+
+  .cast-card img {
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-overview {
+    font-size: 1rem;
+  }
+
+  .cast-card img {
+    height: 120px;
+  }
+}
